@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Encuentro de Partidenses 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Caveat:wght@700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
-  
   <style>
     * {
       box-sizing: border-box;
@@ -15,210 +11,96 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 15px;
-      /* Fondo compuesto con patrón agrícola y bandera tenue */
-      background: linear-gradient(rgba(245, 245, 240, 0.88), rgba(245, 245, 240, 0.88)),
-                  url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .poster-card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-      max-width: 480px;
+    html, body {
       width: 100%;
-      padding: 25px 20px;
-      text-align: center;
+      height: 100%;
+      overflow: hidden;
+      background-color: #1a1a1a;
+      font-family: 'Arial Black', Gadget, sans-serif;
+    }
+
+    /* Contenedor principal que mantiene la imagen del afiche centrada y ajustada */
+    .poster-container {
       position: relative;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    /* Escudo de Partido Superior */
-    .escudo-wrapper {
-      margin-bottom: 15px;
-    }
-
-    .escudo-img {
-      width: 150px;
-      height: auto;
-      filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.25));
-    }
-
-    /* Título Principal */
-    .main-title {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #0d0d0d;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    /* Reloj Estilo Marco Metálico/Bronce */
-    .countdown-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 25px;
-    }
-
-    .time-card {
-      background: linear-gradient(145deg, #2a221b, #15100c);
-      border: 2px solid #b8860b;
-      border-radius: 12px;
-      padding: 12px 2px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 0 8px rgba(184, 134, 11, 0.3);
-    }
-
-    .time-val {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: #f3e5ab;
-      font-family: 'Courier New', monospace;
-      line-height: 1;
-      text-shadow: 0 0 5px rgba(243, 229, 171, 0.5);
-    }
-
-    .time-lbl {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: #d4af37;
-      text-transform: uppercase;
-      margin-top: 8px;
-      letter-spacing: 0.5px;
-    }
-
-    /* Arte Inferior PARTIDO / Mi pueblo natal */
-    .brand-section {
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://raw.githubusercontent.com/felinodejesus-ai/ENCUENTRO-DE-PARTIDENSES/main/Gemini_Generated_Image_6xucj96xucj96xuc.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
-      margin: 15px 0;
     }
 
-    .partido-block {
+    /* Alineación de los números dinámicos sobre los marcos de reloj de bronce */
+    .countdown-overlay {
+      position: absolute;
+      top: 52%; /* Ajuste vertical sobre las cajas */
       display: flex;
-      flex-direction: column;
-      font-size: 1.8rem;
-      font-weight: 900;
-      line-height: 0.9;
-      letter-spacing: 1px;
-      text-align: right;
-    }
-
-    .partido-block .par { color: #002b7f; }
-    .partido-block .ti { color: #6c757d; }
-    .partido-block .do { color: #ce1126; }
-
-    .script-block {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-family: 'Caveat', cursive;
-      font-size: 1.6rem;
-      color: #333;
-      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 4px;
+      gap: 2.2vw;
+      width: 100%;
+      max-width: 650px;
     }
 
-    .script-block span {
-      color: #ce1126;
+    .time-unit {
+      flex: 1;
+      text-align: center;
     }
 
-    /* Pie de página */
-    .footer-subtitle {
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: #444;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-top: 1px solid #ddd;
-      padding-top: 12px;
-      margin-top: 10px;
+    .number {
+      font-size: clamp(1.4rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: #fde8a6;
+      font-family: 'Courier New', Courier, monospace;
+      text-shadow: 0 0 12px rgba(0, 0, 0, 0.9), 0 0 6px rgba(253, 232, 166, 0.5);
+      line-height: 1;
     }
 
-    .celebration-msg {
+    /* Mensaje para cuando llegue la fecha */
+    .celebration {
       display: none;
-      font-size: 1.8rem;
+      position: absolute;
+      top: 50%;
+      font-size: clamp(1.5rem, 4vw, 3rem);
       font-weight: 900;
       color: #ce1126;
-      padding: 15px 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <div class="poster-card">
-    <!-- Escudo Oficial -->
-    <div class="escudo-wrapper">
-      <img src="https://raw.githubusercontent.com/felinodejesus-ai/ENCUENTRO-DE-PARTIDENSES/main/d7ec7dff-4e47-497d-9f6d-0af8da659020.png" alt="Escudo Municipio de Partido" class="escudo-img">
+  <div class="poster-container">
+    <!-- Números que se actualizan automáticamente en tiempo real -->
+    <div class="countdown-overlay" id="timer">
+      <div class="time-unit"><div class="number" id="days">00</div></div>
+      <div class="time-unit"><div class="number" id="hours">00</div></div>
+      <div class="time-unit"><div class="number" id="minutes">00</div></div>
+      <div class="time-unit"><div class="number" id="seconds">00</div></div>
     </div>
 
-    <div class="main-title">ENCUENTRO DE PARTIDENSES 2026</div>
-
-    <!-- Contenido del Reloj -->
-    <div id="clock-block">
-      <div class="countdown-container">
-        <div class="time-card">
-          <div class="time-val" id="days">00</div>
-          <div class="time-lbl">DÍAS</div>
-        </div>
-        <div class="time-card">
-          <div class="time-val" id="hours">00</div>
-          <div class="time-lbl">HORAS</div>
-        </div>
-        <div class="time-card">
-          <div class="time-val" id="minutes">00</div>
-          <div class="time-lbl">MINUTOS</div>
-        </div>
-        <div class="time-card">
-          <div class="time-val" id="seconds">00</div>
-          <div class="time-lbl">SEGUNDOS</div>
-        </div>
-      </div>
-    </div>
-
-    <div id="celebration-msg" class="celebration-msg">
+    <div id="celebration" class="celebration">
       🎉 ¡HOY ES EL GRAN DÍA! 🎉
-    </div>
-
-    <!-- Logotipo PARTIDO / Mi pueblo natal -->
-    <div class="brand-section">
-      <div class="partido-block">
-        <span class="par">PAR</span>
-        <span class="ti">TI</span>
-        <span class="do">DO</span>
-      </div>
-      <div class="script-block">
-        Mi pueblo natal <span>❤️</span>
-      </div>
-    </div>
-
-    <div class="footer-text footer-subtitle">
-      REUNIÓN DE LA COMUNIDAD • 29 DE AGOSTO DE 2026
     </div>
   </div>
 
   <script>
     const targetDate = new Date("August 29, 2026 00:00:00").getTime();
 
-    function updateTimer() {
+    function updateCountdown() {
       const now = new Date().getTime();
       const diff = targetDate - now;
 
       if (diff <= 0) {
-        document.getElementById("clock-block").style.display = "none";
-        document.getElementById("celebration-msg").style.display = "block";
+        document.getElementById("timer").style.display = "none";
+        document.getElementById("celebration").style.display = "block";
         clearInterval(timerInterval);
         return;
       }
@@ -234,8 +116,8 @@
       document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
     }
 
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
