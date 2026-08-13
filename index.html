@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuentro de Partidenses 2026</title>
+  <style>
+    :root {
+      --azul-partido: #002f87;
+      --rojo-partido: #ba0c2f;
+      --amarillo-partido: #f2a900;
+      --gris-partido: #708090;
+      --fondo: #f4f7f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--fondo);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      max-width: 480px;
+      width: 100%;
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 8px solid var(--azul-partido);
+      border-bottom: 8px solid var(--rojo-partido);
+    }
+
+    .header-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--azul-partido);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      font-family: 'Brush Script MT', cursive, sans-serif;
+      font-size: 2rem;
+      color: var(--rojo-partido);
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--amarillo-partido);
+      color: #fff;
+      font-weight: bold;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    /* Contenedor del Reloj */
+    .timer-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .time-box {
+      background: #f8f9fa;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 8px;
+      flex: 1;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--azul-partido);
+      line-height: 1;
+    }
+
+    .label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--gris-partido);
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* Mensaje Final */
+    .final-message {
+      display: none;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--rojo-partido);
+      animation: pulse 1.5s infinite;
+      padding: 20px 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--gris-partido);
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header-title">ENCUENTRO DE PARTIDENSES</div>
+    <div class="subtitle">Mi Pueblo Natal 2026</div>
+    
+    <div id="countdown-wrapper">
+      <div class="badge">FALTAN</div>
+      
+      <div class="timer-container">
+        <div class="time-box">
+          <div class="number" id="days">00</div>
+          <div class="label">Días</div>
+        </div>
+        <div class="time-box">
+          <div class="number" id="hours">00</div>
+          <div class="label">Horas</div>
+        </div>
+        <div class="time-box">
+          <div class="number" id="minutes">00</div>
+          <div class="label">Minutos</div>
+        </div>
+        <div class="time-box">
+          <div class="number" id="seconds">00</div>
+          <div class="label">Segundos</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="final-message" class="final-message">
+      🎉 ¡HOY ES EL GRAN DÍA! 🎉
+    </div>
+
+    <div class="footer-text">
+      Municipio de Partido • República Dominicana<br>
+      <b>29 de Agosto de 2026</b>
+    </div>
+  </div>
+
+  <script>
+    // Fecha objetivo: 29 de Agosto de 2026 a las 00:00:00
+    const targetDate = new Date("August 29, 2026 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("countdown-wrapper").style.display = "none";
+        document.getElementById("final-message").style.display = "block";
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
