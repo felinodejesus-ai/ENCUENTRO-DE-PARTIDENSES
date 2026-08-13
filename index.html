@@ -1,124 +1,2515 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encuentro de Partidenses 2026</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#092f45"
+  >
+
+  <meta
+    name="description"
+    content="Encuentro de Partidenses 2026 — Reunión del condado y la comunidad."
+  >
+
+  <title>
+    Encuentro de Partidenses 2026
+  </title>
+
+
   <style>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+
+      --azul: #073b5c;
+      --azul-oscuro: #062b41;
+      --azul-claro: #0d6385;
+
+      --rojo: #b3131b;
+      --rojo-oscuro: #810d13;
+
+      --dorado: #d6a436;
+      --dorado-claro: #f2d47a;
+
+      --crema: #f8f3e8;
+      --blanco: #ffffff;
+
+      --texto: #18242b;
+      --gris: #64727a;
+
+      --sombra:
+        0 20px 50px rgba(0,0,0,.20);
+
+      --radio: 24px;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    html, body {
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--texto);
+
+      background: var(--crema);
+
+      overflow-x: hidden;
+    }
+
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+
+    button,
+    a {
+      font: inherit;
+    }
+
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       FONDO GENERAL
+    ========================================================= */
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -3;
+
+      background:
+
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(214,164,54,.12),
+          transparent 25%
+        ),
+
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(179,19,27,.10),
+          transparent 30%
+        ),
+
+        var(--crema);
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .topbar {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
       width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #1a1a1a;
-      font-family: 'Arial Black', Gadget, sans-serif;
+
+      z-index: 100;
+
+      padding: 14px 5%;
+
+      background:
+        rgba(6,43,65,.82);
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.15);
+
+      transition:
+        .3s ease;
     }
 
-    /* Contenedor principal que mantiene la imagen del afiche centrada y ajustada */
-    .poster-container {
+
+    .topbar-inner {
+
+      max-width: 1200px;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      color: white;
+
+      text-decoration: none;
+    }
+
+
+    .brand img {
+
+      width: 48px;
+      height: 48px;
+
+      object-fit: contain;
+    }
+
+
+    .brand-text {
+
+      line-height: 1.05;
+    }
+
+
+    .brand-text strong {
+
+      display: block;
+
+      font-size: 15px;
+
+      letter-spacing: .5px;
+    }
+
+
+    .brand-text span {
+
+      font-size: 11px;
+
+      opacity: .75;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+
+    .nav {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 28px;
+    }
+
+
+    .nav a {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      transition: .25s ease;
+    }
+
+
+    .nav a:hover {
+
+      color: var(--dorado-claro);
+
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+
       position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-image: url('https://raw.githubusercontent.com/felinodejesus-ai/ENCUENTRO-DE-PARTIDENSES/main/Gemini_Generated_Image_6xucj96xucj96xuc.png');
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
+
+      min-height: 100vh;
+
       display: flex;
-      justify-content: center;
+
       align-items: center;
+
+      justify-content: center;
+
+      padding:
+        120px 20px 80px;
+
+      overflow: hidden;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(5,42,63,.94),
+          rgba(5,42,63,.72)
+        ),
+
+        url("imagenes/paisaje-partido.png")
+        center / cover no-repeat;
     }
 
-    /* Alineación de los números dinámicos sobre los marcos de reloj de bronce */
-    .countdown-overlay {
+
+    /*
+      Si todavía no tienes paisaje-partido.png,
+      puedes colocar temporalmente:
+
+      background-image:
+      linear-gradient(...),
+      url("imagenes/afiche-encuentro.png");
+    */
+
+
+    .hero::before {
+
+      content: "";
+
       position: absolute;
-      top: 52%; /* Ajuste vertical sobre las cajas */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2.2vw;
-      width: 100%;
-      max-width: 650px;
+
+      inset: 0;
+
+      background:
+
+        radial-gradient(
+          circle at center,
+          transparent 15%,
+          rgba(0,0,0,.35) 100%
+        );
     }
 
-    .time-unit {
-      flex: 1;
+
+    .hero-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 100%;
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1.25fr;
+
+      align-items: center;
+
+      gap: 50px;
+    }
+
+
+    /* =========================================================
+       ESCUDO
+    ========================================================= */
+
+    .shield-container {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+    }
+
+
+    .shield {
+
+      width:
+        min(430px, 80vw);
+
+      filter:
+        drop-shadow(
+          0 25px 35px rgba(0,0,0,.45)
+        );
+
+      animation:
+        floating 5s ease-in-out infinite;
+    }
+
+
+    @keyframes floating {
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0);
+      }
+
+      50% {
+
+        transform:
+          translateY(-10px);
+      }
+    }
+
+
+    /* =========================================================
+       HERO TEXTO
+    ========================================================= */
+
+    .hero-text {
+
+      color: white;
+
+      text-align: left;
+    }
+
+
+    .eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        8px 14px;
+
+      border-radius: 50px;
+
+      background:
+        rgba(255,255,255,.12);
+
+      border:
+        1px solid rgba(255,255,255,.25);
+
+      backdrop-filter:
+        blur(8px);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .eyebrow::before {
+
+      content: "";
+
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background:
+        var(--dorado);
+
+      box-shadow:
+        0 0 12px var(--dorado);
+    }
+
+
+    .hero h1 {
+
+      font-size:
+        clamp(
+          2.8rem,
+          7vw,
+          6.5rem
+        );
+
+      line-height: .92;
+
+      font-weight: 950;
+
+      letter-spacing: -4px;
+
+      margin-bottom: 24px;
+    }
+
+
+    .hero h1 span {
+
+      display: block;
+
+      color:
+        var(--dorado-claro);
+
+      font-size:
+        .55em;
+
+      letter-spacing:
+        -1px;
+
+      margin-top: 10px;
+    }
+
+
+    .hero-description {
+
+      max-width: 560px;
+
+      color:
+        rgba(255,255,255,.84);
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          1rem,
+          2vw,
+          1.3rem
+        );
+
+      line-height: 1.6;
+
+      margin-bottom: 30px;
+    }
+
+
+    /* =========================================================
+       BOTONES
+    ========================================================= */
+
+    .hero-buttons {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+
+    .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      min-height: 48px;
+
+      padding:
+        12px 20px;
+
+      border-radius: 12px;
+
+      border: none;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+    }
+
+
+    .btn:hover {
+
+      transform:
+        translateY(-3px);
+    }
+
+
+    .btn-primary {
+
+      color: white;
+
+      background:
+        var(--rojo);
+
+      box-shadow:
+        0 10px 25px
+        rgba(179,19,27,.35);
+    }
+
+
+    .btn-primary:hover {
+
+      background:
+        var(--rojo-oscuro);
+    }
+
+
+    .btn-secondary {
+
+      color: white;
+
+      background:
+        rgba(255,255,255,.12);
+
+      border:
+        1px solid rgba(255,255,255,.30);
+
+      backdrop-filter:
+        blur(8px);
+    }
+
+
+    /* =========================================================
+       CONTADOR
+    ========================================================= */
+
+    .countdown-section {
+
+      position: relative;
+
+      z-index: 5;
+
+      margin-top: -70px;
+
+      padding:
+        0 20px;
+    }
+
+
+    .countdown-card {
+
+      max-width: 1050px;
+
+      margin: auto;
+
+      padding:
+        28px;
+
+      border-radius:
+        var(--radio);
+
+      background:
+        rgba(255,255,255,.96);
+
+      box-shadow:
+        var(--sombra);
+
+      border:
+        1px solid rgba(0,0,0,.06);
+
       text-align: center;
     }
 
-    .number {
-      font-size: clamp(1.4rem, 4vw, 3.2rem);
+
+    .countdown-title {
+
+      color:
+        var(--azul);
+
+      font-size: 13px;
+
       font-weight: 900;
-      color: #fde8a6;
-      font-family: 'Courier New', Courier, monospace;
-      text-shadow: 0 0 12px rgba(0, 0, 0, 0.9), 0 0 6px rgba(253, 232, 166, 0.5);
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .countdown {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 15px;
+    }
+
+
+    .time-box {
+
+      position: relative;
+
+      padding:
+        20px 10px;
+
+      border-radius: 18px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          #f4ead5,
+          #d3b17a
+        );
+
+      border:
+        3px solid #9c723d;
+
+      box-shadow:
+        inset 0 0 0 4px
+        rgba(255,255,255,.35),
+
+        0 8px 15px
+        rgba(0,0,0,.12);
+    }
+
+
+    .time-number {
+
+      display: block;
+
+      color:
+        #2a1b11;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          4.2rem
+        );
+
+      font-weight: 900;
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+    }
+
+
+    .time-label {
+
+      display: block;
+
+      margin-top: 10px;
+
+      color:
+        #53391e;
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+
+    /* =========================================================
+       LOGO PARTIDO
+    ========================================================= */
+
+    .logo-section {
+
+      padding:
+        90px 20px 50px;
+
+      text-align: center;
+
+      background:
+        white;
+    }
+
+
+    .logo-section img {
+
+      width:
+        min(340px, 80vw);
+
+      margin:
+        0 auto 25px;
+    }
+
+
+    .section-subtitle {
+
+      color:
+        var(--gris);
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        1.15rem;
+
+      max-width: 650px;
+
+      margin: auto;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       SECCIÓN INFORMACIÓN
+    ========================================================= */
+
+    .information {
+
+      padding:
+        90px 20px;
+
+      background:
+        var(--crema);
+    }
+
+
+    .section-container {
+
+      width: 100%;
+
+      max-width: 1150px;
+
+      margin: auto;
+    }
+
+
+    .section-heading {
+
+      text-align: center;
+
+      margin-bottom: 50px;
+    }
+
+
+    .section-heading small {
+
+      color:
+        var(--rojo);
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+
+    .section-heading h2 {
+
+      margin-top: 10px;
+
+      color:
+        var(--azul);
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          3.5rem
+        );
+    }
+
+
+    .section-heading p {
+
+      max-width: 700px;
+
+      margin:
+        15px auto 0;
+
+      color:
+        var(--gris);
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       TARJETAS
+    ========================================================= */
+
+    .cards {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 20px;
+    }
+
+
+    .card {
+
+      padding:
+        30px 22px;
+
+      background:
+        white;
+
+      border-radius:
+        var(--radio);
+
+      box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.07);
+
+      border:
+        1px solid rgba(0,0,0,.05);
+
+      text-align: center;
+
+      transition:
+        .3s ease;
+    }
+
+
+    .card:hover {
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 20px 40px
+        rgba(0,0,0,.13);
+    }
+
+
+    .card-icon {
+
+      width: 60px;
+      height: 60px;
+
+      margin:
+        0 auto 18px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(7,59,92,.09);
+
+      font-size: 27px;
+    }
+
+
+    .card h3 {
+
+      color:
+        var(--azul);
+
+      margin-bottom: 10px;
+
+      font-size: 18px;
+    }
+
+
+    .card p {
+
+      color:
+        var(--gris);
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       AFICHE
+    ========================================================= */
+
+    .poster-section {
+
+      padding:
+        90px 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--azul-oscuro),
+          var(--azul)
+        );
+    }
+
+
+    .poster-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      align-items: center;
+
+      gap: 60px;
+
+      max-width: 1050px;
+
+      margin: auto;
+    }
+
+
+    .poster-image {
+
+      border-radius:
+        18px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 30px 60px
+        rgba(0,0,0,.35);
+
+      transform:
+        rotate(-1deg);
+    }
+
+
+    .poster-image img {
+
+      width: 100%;
+    }
+
+
+    .poster-text {
+
+      color: white;
+    }
+
+
+    .poster-text small {
+
+      color:
+        var(--dorado-claro);
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+
+    .poster-text h2 {
+
+      margin:
+        12px 0 20px;
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          4rem
+        );
+
       line-height: 1;
     }
 
-    /* Mensaje para cuando llegue la fecha */
-    .celebration {
-      display: none;
-      position: absolute;
-      top: 50%;
-      font-size: clamp(1.5rem, 4vw, 3rem);
-      font-weight: 900;
-      color: #ce1126;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 20px 40px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      text-align: center;
+
+    .poster-text p {
+
+      color:
+        rgba(255,255,255,.75);
+
+      line-height: 1.7;
+
+      margin-bottom: 25px;
     }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      padding:
+        45px 20px;
+
+      text-align: center;
+
+      background:
+        #041d2b;
+
+      color:
+        rgba(255,255,255,.7);
+    }
+
+
+    footer strong {
+
+      display: block;
+
+      color: white;
+
+      margin-bottom: 8px;
+    }
+
+
+    footer p {
+
+      font-size: 13px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       MODALES
+    ========================================================= */
+
+    .modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 500;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+
+      background:
+        rgba(0,0,0,.72);
+
+      backdrop-filter:
+        blur(7px);
+    }
+
+
+    .modal.active {
+
+      display: flex;
+    }
+
+
+    .modal-content {
+
+      position: relative;
+
+      width: 100%;
+
+      max-width: 550px;
+
+      padding: 35px;
+
+      border-radius:
+        24px;
+
+      background:
+        white;
+
+      box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.4);
+
+      animation:
+        modalIn .3s ease-out;
+    }
+
+
+    @keyframes modalIn {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          scale(.94)
+          translateY(15px);
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          scale(1)
+          translateY(0);
+      }
+    }
+
+
+    .modal-close {
+
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        #eee;
+
+      font-size: 22px;
+
+      color:
+        #333;
+    }
+
+
+    .modal-content h2 {
+
+      color:
+        var(--azul);
+
+      margin-bottom: 15px;
+    }
+
+
+    .modal-content p {
+
+      color:
+        var(--gris);
+
+      line-height: 1.7;
+
+      margin-bottom: 20px;
+    }
+
+
+    .modal-buttons {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width: 900px) {
+
+      .hero-content {
+
+        grid-template-columns:
+          1fr;
+
+        text-align: center;
+
+        gap: 20px;
+      }
+
+
+      .hero-text {
+
+        text-align: center;
+      }
+
+
+      .hero-description {
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
+      .hero-buttons {
+
+        justify-content: center;
+      }
+
+
+      .shield {
+
+        width:
+          min(300px,65vw);
+      }
+
+
+      .cards {
+
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+
+      .poster-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 40px;
+      }
+
+
+      .poster-text {
+
+        text-align: center;
+      }
+    }
+
+
+    @media(max-width: 650px) {
+
+      .nav {
+
+        display: none;
+      }
+
+
+      .brand-text strong {
+
+        font-size: 13px;
+      }
+
+
+      .hero {
+
+        padding-top: 100px;
+      }
+
+
+      .hero h1 {
+
+        letter-spacing:
+          -2px;
+      }
+
+
+      .countdown-section {
+
+        margin-top: -45px;
+      }
+
+
+      .countdown-card {
+
+        padding: 18px 12px;
+      }
+
+
+      .countdown {
+
+        gap: 7px;
+      }
+
+
+      .time-box {
+
+        padding:
+          14px 5px;
+
+        border-width:
+          2px;
+
+        border-radius:
+          12px;
+      }
+
+
+      .time-number {
+
+        font-size:
+          clamp(
+            1.4rem,
+            8vw,
+            2.4rem
+          );
+
+        letter-spacing:
+          -2px;
+      }
+
+
+      .time-label {
+
+        font-size:
+          8px;
+
+        letter-spacing:
+          .8px;
+      }
+
+
+      .cards {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .logo-section {
+
+        padding-top:
+          70px;
+      }
+
+
+      .modal-content {
+
+        padding:
+          28px 22px;
+      }
+    }
+
+
+    @media(max-width: 400px) {
+
+      .hero-buttons {
+
+        flex-direction:
+          column;
+      }
+
+
+      .btn {
+
+        width:
+          100%;
+      }
+
+
+      .time-number {
+
+        font-size:
+          1.35rem;
+      }
+    }
+
+
   </style>
+
 </head>
+
+
 <body>
 
-  <div class="poster-container">
-    <!-- Números que se actualizan automáticamente en tiempo real -->
-    <div class="countdown-overlay" id="timer">
-      <div class="time-unit"><div class="number" id="days">00</div></div>
-      <div class="time-unit"><div class="number" id="hours">00</div></div>
-      <div class="time-unit"><div class="number" id="minutes">00</div></div>
-      <div class="time-unit"><div class="number" id="seconds">00</div></div>
+
+  <!-- =======================================================
+       BARRA SUPERIOR
+  ======================================================== -->
+
+  <header class="topbar">
+
+    <div class="topbar-inner">
+
+      <a
+        href="#inicio"
+        class="brand"
+      >
+
+        <img
+          src="imagenes/escudo-partido.png"
+          alt="Escudo del Municipio de Partido"
+        >
+
+        <div class="brand-text">
+
+          <strong>
+            Partido
+          </strong>
+
+          <span>
+            República Dominicana
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav class="nav">
+
+        <a href="#inicio">
+          Inicio
+        </a>
+
+        <a href="#encuentro">
+          El Encuentro
+        </a>
+
+        <a href="#afiche">
+          Afiche
+        </a>
+
+        <a href="#contacto">
+          Información
+        </a>
+
+      </nav>
+
     </div>
 
-    <div id="celebration" class="celebration">
-      🎉 ¡HOY ES EL GRAN DÍA! 🎉
+  </header>
+
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <section
+    class="hero"
+    id="inicio"
+  >
+
+    <div class="hero-content">
+
+
+      <!-- ESCUDO -->
+
+      <div class="shield-container">
+
+        <img
+          class="shield"
+          src="imagenes/escudo-partido.png"
+          alt="Escudo del Municipio de Partido"
+        >
+
+      </div>
+
+
+      <!-- TEXTO -->
+
+      <div class="hero-text">
+
+        <div class="eyebrow">
+
+          Un pueblo que vuelve a encontrarse
+
+        </div>
+
+
+        <h1>
+
+          ENCUENTRO
+
+          <span>
+            DE PARTIDENSES 2026
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Un momento para volver a nuestras raíces,
+          reencontrarnos con nuestra gente y celebrar
+          el orgullo de ser de Partido.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('infoModal')"
+          >
+            ✨ Conocer el encuentro
+          </button>
+
+
+          <button
+            class="btn btn-secondary"
+            onclick="addToCalendar()"
+          >
+            📅 Agregar al calendario
+          </button>
+
+
+          <button
+            class="btn btn-secondary"
+            onclick="shareEvent()"
+          >
+            📲 Compartir
+          </button>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       CONTADOR
+  ======================================================== -->
+
+  <section class="countdown-section">
+
+    <div class="countdown-card">
+
+      <div class="countdown-title">
+
+        ⏳ Cuenta regresiva para nuestro encuentro
+
+      </div>
+
+
+      <div
+        class="countdown"
+        id="countdown"
+      >
+
+
+        <div class="time-box">
+
+          <span
+            class="time-number"
+            id="days"
+          >
+            00
+          </span>
+
+          <span class="time-label">
+            Días
+          </span>
+
+        </div>
+
+
+        <div class="time-box">
+
+          <span
+            class="time-number"
+            id="hours"
+          >
+            00
+          </span>
+
+          <span class="time-label">
+            Horas
+          </span>
+
+        </div>
+
+
+        <div class="time-box">
+
+          <span
+            class="time-number"
+            id="minutes"
+          >
+            00
+          </span>
+
+          <span class="time-label">
+            Minutos
+          </span>
+
+        </div>
+
+
+        <div class="time-box">
+
+          <span
+            class="time-number"
+            id="seconds"
+          >
+            00
+          </span>
+
+          <span class="time-label">
+            Segundos
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="eventToday"
+        style="
+          display:none;
+          color:#b3131b;
+          font-size:clamp(1.5rem,5vw,3rem);
+          font-weight:900;
+          padding:25px 10px;
+        "
+      >
+
+        🎉 ¡HOY ES EL GRAN DÍA! 🎉
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       LOGO
+  ======================================================== -->
+
+  <section
+    class="logo-section"
+    id="encuentro"
+  >
+
+    <img
+      src="imagenes/logo-partido.png"
+      alt="Partido, Mi pueblo querido"
+    >
+
+
+    <p class="section-subtitle">
+
+      <strong>
+        Reunión del condado y la comunidad
+      </strong>
+
+      <br>
+
+      Porque hay lugares que nunca dejamos
+      de llevar en el corazón.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       INFORMACIÓN
+  ======================================================== -->
+
+  <section class="information">
+
+    <div class="section-container">
+
+
+      <div class="section-heading">
+
+        <small>
+          Nuestra identidad
+        </small>
+
+        <h2>
+          Un encuentro con nuestras raíces
+        </h2>
+
+        <p>
+
+          El Encuentro de Partidenses 2026 es una
+          oportunidad para reunir a quienes nacieron,
+          crecieron o mantienen un vínculo especial
+          con nuestro querido municipio.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="cards">
+
+
+        <article class="card">
+
+          <div class="card-icon">
+            🏡
+          </div>
+
+          <h3>
+            Nuestro pueblo
+          </h3>
+
+          <p>
+
+            Partido es historia, familia,
+            paisajes y recuerdos que permanecen
+            sin importar la distancia.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <div class="card-icon">
+            🤝
+          </div>
+
+          <h3>
+            Comunidad
+          </h3>
+
+          <p>
+
+            Una oportunidad para reencontrarnos,
+            compartir y fortalecer los lazos
+            que nos unen.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <div class="card-icon">
+            🌱
+          </div>
+
+          <h3>
+            Nuestra tierra
+          </h3>
+
+          <p>
+
+            Celebramos nuestros campos,
+            nuestras montañas y la tierra
+            que nos vio crecer.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <div class="card-icon">
+            ❤️
+          </div>
+
+          <h3>
+            Orgullo partidense
+          </h3>
+
+          <p>
+
+            Porque ser de Partido es una parte
+            de nuestra historia que llevamos
+            siempre con nosotros.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       AFICHE
+  ======================================================== -->
+
+  <section
+    class="poster-section"
+    id="afiche"
+  >
+
+    <div class="poster-grid">
+
+
+      <div class="poster-image">
+
+        <img
+          src="imagenes/afiche-encuentro.png"
+          alt="Afiche Encuentro de Partidenses 2026"
+        >
+
+      </div>
+
+
+      <div class="poster-text">
+
+        <small>
+          Reserva la fecha
+        </small>
+
+
+        <h2>
+          29 de agosto de 2026
+        </h2>
+
+
+        <p>
+
+          Guarda esta fecha y prepárate para
+          reencontrarte con familiares, amigos
+          y personas que comparten contigo
+          el orgullo de ser partidense.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('locationModal')"
+          >
+            📍 Ver ubicación
+          </button>
+
+
+          <button
+            class="btn btn-secondary"
+            onclick="addToCalendar()"
+          >
+            📅 Guardar fecha
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer id="contacto">
+
+    <strong>
+      ENCUENTRO DE PARTIDENSES 2026
+    </strong>
+
+    <p>
+      Reunión del condado y la comunidad
+    </p>
+
+    <p style="margin-top:10px;">
+      Partido, República Dominicana 🇩🇴
+    </p>
+
+    <p style="margin-top:18px; opacity:.55;">
+      © 2026 — Encuentro de Partidenses
+    </p>
+
+  </footer>
+
+
+
+  <!-- =======================================================
+       MODAL INFORMACIÓN
+  ======================================================== -->
+
+  <div
+    class="modal"
+    id="infoModal"
+    onclick="closeOutside(event,'infoModal')"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        onclick="closeModal('infoModal')"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        Encuentro de Partidenses 2026
+      </h2>
+
+
+      <p>
+
+        Este encuentro nace como un espacio
+        para reunir a la comunidad partidense,
+        compartir recuerdos, fortalecer vínculos
+        y celebrar nuestra identidad.
+
+      </p>
+
+
+      <p>
+
+        <strong>
+          📅 Fecha:
+        </strong>
+
+        29 de agosto de 2026
+
+      </p>
+
+
+      <p>
+
+        <strong>
+          📍 Lugar:
+        </strong>
+
+        Partido, República Dominicana
+
+      </p>
+
+
+      <div class="modal-buttons">
+
+        <button
+          class="btn btn-primary"
+          onclick="addToCalendar()"
+        >
+          📅 Agregar al calendario
+        </button>
+
+
+        <button
+          class="btn"
+          style="
+            background:#eee;
+            color:#333;
+          "
+          onclick="closeModal('infoModal')"
+        >
+          Cerrar
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
+
+
+  <!-- =======================================================
+       MODAL UBICACIÓN
+  ======================================================== -->
+
+  <div
+    class="modal"
+    id="locationModal"
+    onclick="closeOutside(event,'locationModal')"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        onclick="closeModal('locationModal')"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        📍 Ubicación
+      </h2>
+
+
+      <p>
+
+        El Encuentro de Partidenses 2026
+        se celebrará en el municipio de
+        Partido, República Dominicana.
+
+      </p>
+
+
+      <p>
+        <strong>
+          Lugar exacto:
+        </strong>
+
+        Próximamente se publicarán los
+        detalles oficiales de la ubicación.
+
+      </p>
+
+
+      <div class="modal-buttons">
+
+        <a
+          class="btn btn-primary"
+          href="https://www.google.com/maps/search/?api=1&query=Partido%2C%20Dajab%C3%B3n%2C%20Rep%C3%BAblica%20Dominicana"
+          target="_blank"
+          rel="noopener"
+        >
+          🗺️ Buscar Partido en Maps
+        </a>
+
+
+        <button
+          class="btn"
+          style="
+            background:#eee;
+            color:#333;
+          "
+          onclick="closeModal('locationModal')"
+        >
+          Cerrar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
   <script>
-    const targetDate = new Date("August 29, 2026 00:00:00").getTime();
+
+
+    /* ========================================================
+       FECHA DEL EVENTO
+    ======================================================== */
+
+    const eventDate =
+      new Date(
+        "2026-08-29T00:00:00-04:00"
+      ).getTime();
+
+
+
+    /* ========================================================
+       ELEMENTOS
+    ======================================================== */
+
+    const days =
+      document.getElementById("days");
+
+    const hours =
+      document.getElementById("hours");
+
+    const minutes =
+      document.getElementById("minutes");
+
+    const seconds =
+      document.getElementById("seconds");
+
+    const countdown =
+      document.getElementById("countdown");
+
+    const eventToday =
+      document.getElementById("eventToday");
+
+
+
+    /* ========================================================
+       CONTADOR
+    ======================================================== */
 
     function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
 
-      if (diff <= 0) {
-        document.getElementById("timer").style.display = "none";
-        document.getElementById("celebration").style.display = "block";
-        clearInterval(timerInterval);
+      const now =
+        Date.now();
+
+      const difference =
+        eventDate - now;
+
+
+      if (difference <= 0) {
+
+        countdown.style.display =
+          "none";
+
+        eventToday.style.display =
+          "block";
+
+        clearInterval(timer);
+
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById("days").innerText = String(days).padStart(2, '0');
-      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+      const totalSeconds =
+        Math.floor(
+          difference / 1000
+        );
+
+
+      const d =
+        Math.floor(
+          totalSeconds / 86400
+        );
+
+
+      const h =
+        Math.floor(
+          (totalSeconds % 86400) / 3600
+        );
+
+
+      const m =
+        Math.floor(
+          (totalSeconds % 3600) / 60
+        );
+
+
+      const s =
+        totalSeconds % 60;
+
+
+      days.textContent =
+        String(d).padStart(2,"0");
+
+
+      hours.textContent =
+        String(h).padStart(2,"0");
+
+
+      minutes.textContent =
+        String(m).padStart(2,"0");
+
+
+      seconds.textContent =
+        String(s).padStart(2,"0");
+
     }
 
-    const timerInterval = setInterval(updateCountdown, 1000);
+
     updateCountdown();
+
+
+    const timer =
+      setInterval(
+        updateCountdown,
+        1000
+      );
+
+
+
+    /* ========================================================
+       MODALES
+    ======================================================== */
+
+    function openModal(id) {
+
+      document
+        .getElementById(id)
+        .classList.add("active");
+
+      document.body.style.overflow =
+        "hidden";
+    }
+
+
+    function closeModal(id) {
+
+      document
+        .getElementById(id)
+        .classList.remove("active");
+
+      document.body.style.overflow =
+        "";
+    }
+
+
+    function closeOutside(
+      event,
+      id
+    ) {
+
+      if (
+        event.target ===
+        document.getElementById(id)
+      ) {
+
+        closeModal(id);
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .querySelectorAll(".modal.active")
+            .forEach(
+              modal =>
+                closeModal(modal.id)
+            );
+
+        }
+
+      }
+    );
+
+
+
+    /* ========================================================
+       AGREGAR AL CALENDARIO
+    ======================================================== */
+
+    function addToCalendar() {
+
+      const start =
+        "20260829T000000";
+
+      const end =
+        "20260830T000000";
+
+
+      const title =
+        encodeURIComponent(
+          "Encuentro de Partidenses 2026"
+        );
+
+
+      const details =
+        encodeURIComponent(
+          "Encuentro de Partidenses 2026 — Reunión del condado y la comunidad."
+        );
+
+
+      const location =
+        encodeURIComponent(
+          "Partido, República Dominicana"
+        );
+
+
+      const url =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" + title +
+        "&dates=" + start + "/" + end +
+        "&details=" + details +
+        "&location=" + location;
+
+
+      window.open(
+        url,
+        "_blank"
+      );
+
+    }
+
+
+
+    /* ========================================================
+       COMPARTIR
+    ======================================================== */
+
+    async function shareEvent() {
+
+      const shareData = {
+
+        title:
+          "Encuentro de Partidenses 2026",
+
+        text:
+          "🇩🇴 Encuentro de Partidenses 2026 — Reunión del condado y la comunidad.",
+
+        url:
+          window.location.href
+
+      };
+
+
+      try {
+
+        if (
+          navigator.share
+        ) {
+
+          await navigator.share(
+            shareData
+          );
+
+        } else {
+
+          await navigator.clipboard.writeText(
+            window.location.href
+          );
+
+          alert(
+            "Enlace copiado. ¡Compártelo con otros partidenses!"
+          );
+
+        }
+
+      }
+
+      catch(error) {
+
+        console.log(
+          "Compartir cancelado."
+        );
+
+      }
+
+    }
+
+
+
+    /* ========================================================
+       EFECTO DEL HEADER AL HACER SCROLL
+    ======================================================== */
+
+    const topbar =
+      document.querySelector(
+        ".topbar"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function() {
+
+        if (
+          window.scrollY > 30
+        ) {
+
+          topbar.style.background =
+            "rgba(4,29,43,.96)";
+
+        } else {
+
+          topbar.style.background =
+            "rgba(6,43,65,.82)";
+
+        }
+
+      }
+    );
+
+
+
+    /* ========================================================
+       ANIMACIÓN DE APARICIÓN
+    ======================================================== */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.style.opacity =
+                  "1";
+
+                entry.target.style.transform =
+                  "translateY(0)";
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: .12
+        }
+      );
+
+
+    document
+      .querySelectorAll(
+        ".card, .poster-image, .poster-text"
+      )
+      .forEach(
+        element => {
+
+          element.style.opacity =
+            "0";
+
+          element.style.transform =
+            "translateY(25px)";
+
+          element.style.transition =
+            "opacity .7s ease, transform .7s ease";
+
+          observer.observe(
+            element
+          );
+
+        }
+      );
+
+
   </script>
+
 
 </body>
 </html>
