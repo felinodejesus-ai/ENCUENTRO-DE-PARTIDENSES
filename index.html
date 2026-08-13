@@ -6,392 +6,169 @@
 <meta name="theme-color" content="#062b41">
 <meta name="description" content="Encuentro de Partidenses 2026 — Reunión del condado y la comunidad.">
 <title>Encuentro de Partidenses 2026</title>
-
 <style>
 :root{
-  --blue:#073b5c; --dark:#062b41; --red:#b3131b;
-  --red2:#810d13; --gold:#d6a436; --gold2:#f2d47a;
-  --cream:#f8f3e8; --white:#fff; --text:#18242b; --gray:#64727a;
+ --blue:#073b5c;--dark:#062b41;--red:#b3131b;--red2:#810d13;
+ --gold:#d6a436;--gold2:#f2d47a;--cream:#f8f3e8;--gray:#64727a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden}
-button,a{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
-.topbar{
-  position:fixed;top:0;left:0;width:100%;z-index:100;padding:12px 4%;
-  background:rgba(6,43,65,.88);backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.14);transition:.3s
-}
+body{font-family:Arial,Helvetica,sans-serif;color:#18242b;background:var(--cream);overflow-x:hidden}
+button,a{font:inherit}button{cursor:pointer}img{max-width:100%;display:block}
+.topbar{position:fixed;top:0;left:0;width:100%;z-index:100;padding:9px 4%;background:rgba(4,29,43,.91);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.13)}
 .topbar-inner{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
-.brand img{width:50px;height:50px;object-fit:contain}
-.brand strong{display:block;font-size:15px}
-.brand span{display:block;font-size:10px;letter-spacing:1px;opacity:.75}
-.nav{display:flex;gap:24px;align-items:center}
-.nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:800}
-.nav a:hover{color:var(--gold2)}
-.nav .nav-calendar{background:var(--red);padding:12px 16px;border-radius:9px}
-.hero{
-  position:relative;min-height:88vh;padding:115px 20px 105px;overflow:hidden;
-  display:flex;align-items:center;
-  background:linear-gradient(90deg,rgba(3,35,53,.75),rgba(3,35,53,.30)),
-             url("imagenes/paisaje-partido.jpg") center/cover no-repeat;
-}
-.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,transparent 10%,rgba(0,0,0,.28) 100%)}
-.hero-content{position:relative;z-index:2;max-width:1200px;width:100%;margin:auto;display:grid;grid-template-columns:430px 1fr;gap:55px;align-items:center}
-.shield{width:min(430px,80vw);margin:auto;filter:drop-shadow(0 25px 35px rgba(0,0,0,.45));animation:float 5s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.hero-text{color:#fff}
-.eyebrow{display:inline-block;padding:8px 14px;border-radius:50px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px}
-.hero h1{font-size:clamp(2.7rem,6vw,6.2rem);line-height:.9;font-weight:950;letter-spacing:-4px;text-shadow:0 5px 15px rgba(0,0,0,.35)}
-.hero h1 span{display:block;color:var(--gold2);font-size:.55em;letter-spacing:-1px;margin-top:13px}
-.hero-description{max-width:650px;margin:24px 0;color:rgba(255,255,255,.88);font:1.15rem/1.55 Georgia,serif}
-.buttons{display:flex;flex-wrap:wrap;gap:11px}
-.btn{border:0;border-radius:11px;padding:13px 18px;min-height:46px;font-size:14px;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.25s}
-.btn:hover{transform:translateY(-3px)}
-.primary{background:var(--red);color:#fff;box-shadow:0 10px 25px rgba(179,19,27,.35)}
-.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.28)}
-.gold{background:var(--gold);color:#152331}
-.countdown-wrap{position:relative;z-index:5;margin-top:-65px;padding:0 18px}
-.countdown-card{max-width:1080px;margin:auto;background:rgba(255,255,255,.97);border-radius:22px;padding:25px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
-.countdown-title{text-align:center;color:var(--blue);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.8px;margin-bottom:18px}
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.time-box{padding:17px 8px;text-align:center;border-radius:16px;background:linear-gradient(145deg,#f4ead5,#d3b17a);border:3px solid #9c723d;box-shadow:inset 0 0 0 3px rgba(255,255,255,.3),0 8px 15px rgba(0,0,0,.12)}
-.time-number{display:block;font:900 clamp(1.8rem,5vw,4rem)/1 "Courier New",monospace;color:#2a1b11;letter-spacing:-3px}
-.time-label{display:block;margin-top:9px;color:#53391e;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px}
-.today{display:none;text-align:center;color:var(--red);font-weight:950;font-size:clamp(1.5rem,4vw,3rem);padding:22px}
-.logo-section{text-align:center;background:#fff;padding:80px 20px 55px}
-.logo-section img{width:min(320px,75vw);margin:auto auto 22px}
-.subtitle{max-width:700px;margin:auto;color:var(--gray);font:1.1rem/1.6 Georgia,serif}
-.section{padding:85px 20px}
-.section.cream{background:var(--cream)}
-.container{max-width:1150px;margin:auto}
-.heading{text-align:center;margin-bottom:45px}
-.heading small{color:var(--red);font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.heading h2{color:var(--blue);font-size:clamp(2rem,5vw,3.5rem);margin-top:8px}
-.heading p{max-width:720px;margin:13px auto 0;color:var(--gray);line-height:1.6}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:#fff;border-radius:20px;padding:28px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.07);transition:.3s}
-.card:hover{transform:translateY(-7px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
-.icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto auto 16px;font-size:27px;background:rgba(7,59,92,.09)}
-.card h3{color:var(--blue);margin-bottom:9px}
-.card p{color:var(--gray);font-size:14px;line-height:1.55}
-.poster-section{padding:90px 20px;background:linear-gradient(135deg,var(--dark),var(--blue))}
-.poster-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-.poster-image{border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(-1deg)}
-.poster-text{color:#fff}
-.poster-text small{color:var(--gold2);font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.poster-text h2{font-size:clamp(2rem,5vw,4rem);line-height:1;margin:12px 0 20px}
-.poster-text p{color:rgba(255,255,255,.76);line-height:1.7;margin-bottom:24px}
-.location-bar{background:#fff;padding:45px 20px}
-.location-inner{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.location-inner h3{color:var(--blue);margin-bottom:6px}
-.location-inner p{color:var(--gray)}
-footer{background:#041d2b;color:rgba(255,255,255,.7);text-align:center;padding:42px 20px}
-footer strong{display:block;color:#fff;margin-bottom:8px}
-footer p{font-size:13px;line-height:1.6}
-.modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(7px)}
-.modal.active{display:flex}
-.modal-content{position:relative;width:100%;max-width:560px;padding:34px;border-radius:22px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:modalIn .3s ease}
-@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(15px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.close{position:absolute;right:13px;top:13px;border:0;width:38px;height:38px;border-radius:50%;background:#eee;font-size:22px}
-.modal h2{color:var(--blue);margin-bottom:15px}
-.modal p{color:var(--gray);line-height:1.65;margin-bottom:15px}
-@media(max-width:900px){
-  .hero-content{grid-template-columns:1fr;text-align:center;gap:25px}
-  .hero-description{margin-left:auto;margin-right:auto}
-  .buttons{justify-content:center}
-  .shield{width:min(310px,65vw)}
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .poster-grid{grid-template-columns:1fr}
-  .poster-text{text-align:center}
-  .location-inner{flex-direction:column;text-align:center}
-}
-@media(max-width:650px){
-  .nav{display:none}
-  .hero{min-height:auto;padding-top:105px}
-  .hero h1{letter-spacing:-2px}
-  .countdown-wrap{margin-top:-40px}
-  .countdown-card{padding:15px 10px}
-  .countdown{gap:6px}
-  .time-box{padding:13px 4px;border-width:2px;border-radius:12px}
-  .time-number{font-size:clamp(1.35rem,8vw,2.3rem);letter-spacing:-2px}
-  .time-label{font-size:8px;letter-spacing:.7px}
-  .cards{grid-template-columns:1fr}
-  .logo-section{padding-top:65px}
-}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}.brand img{width:48px;height:48px;object-fit:contain}
+.brand strong{display:block;font-size:15px}.brand span{font-size:10px;letter-spacing:1px;opacity:.75}
+.nav{display:flex;gap:22px;align-items:center}.nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:800}.nav a:hover{color:var(--gold2)}
+.nav-calendar{border:0!important;background:var(--red)!important;color:#fff!important;padding:12px 15px;border-radius:9px!important}
+.hero{position:relative;min-height:78vh;padding:105px 20px 80px;display:flex;align-items:center;overflow:hidden;background:linear-gradient(90deg,rgba(4,38,55,.73),rgba(4,38,55,.28)),url("imagenes/paisaje-partido.jpg") center/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.35))}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1150px;margin:auto;display:grid;grid-template-columns:360px 1fr;gap:45px;align-items:center}
+.shield{width:min(360px,72vw);margin:auto;filter:drop-shadow(0 22px 24px rgba(0,0,0,.45));animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.hero-text{color:#fff}.eyebrow{display:inline-block;padding:7px 13px;border-radius:50px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:14px}
+.hero h1{font-size:clamp(2.5rem,5.8vw,5.8rem);line-height:.91;font-weight:950;letter-spacing:-3px;text-shadow:0 4px 14px rgba(0,0,0,.38)}
+.hero h1 span{display:block;color:var(--gold2);font-size:.55em;letter-spacing:-.5px;margin-top:10px}
+.hero-description{max-width:650px;margin:18px 0 22px;color:rgba(255,255,255,.92);font:1.03rem/1.5 Georgia,serif}
+.buttons{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;border-radius:10px;padding:11px 16px;min-height:44px;font-size:13px;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.25s}
+.btn:hover{transform:translateY(-3px)}.primary{background:var(--red);color:#fff;box-shadow:0 9px 22px rgba(179,19,27,.3)}.secondary{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.32)}.gold{background:var(--gold);color:#152331}
+.countdown-wrap{position:relative;z-index:5;margin-top:-42px;padding:0 18px}.countdown-card{max-width:1000px;margin:auto;background:rgba(255,255,255,.98);border-radius:20px;padding:20px;box-shadow:0 18px 45px rgba(0,0,0,.22);border:1px solid rgba(0,0,0,.06)}
+.countdown-title{text-align:center;color:var(--blue);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.7px;margin-bottom:15px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.time-box{padding:14px 7px;text-align:center;border-radius:15px;background:linear-gradient(145deg,#f4ead5,#d3b17a);border:2px solid #9c723d;box-shadow:inset 0 0 0 2px rgba(255,255,255,.3),0 7px 13px rgba(0,0,0,.1)}
+.time-number{display:block;font:900 clamp(1.8rem,4.5vw,3.5rem)/1 "Courier New",monospace;color:#2a1b11;letter-spacing:-2px}.time-label{display:block;margin-top:7px;color:#53391e;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:1.3px}
+.today{display:none;text-align:center;color:var(--red);font-weight:950;font-size:clamp(1.5rem,4vw,2.8rem);padding:20px}
+.logo-section{text-align:center;background:#fff;padding:65px 20px 45px}.logo-section img{width:min(300px,72vw);margin:auto auto 18px}.subtitle{max-width:700px;margin:auto;color:var(--gray);font:1.05rem/1.55 Georgia,serif}
+.section{padding:75px 20px}.cream{background:var(--cream)}.container{max-width:1150px;margin:auto}.heading{text-align:center;margin-bottom:40px}.heading small{color:var(--red);font-weight:900;letter-spacing:2px;text-transform:uppercase}.heading h2{color:var(--blue);font-size:clamp(2rem,5vw,3.3rem);margin-top:8px}.heading p{max-width:720px;margin:12px auto 0;color:var(--gray);line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card{background:#fff;border-radius:19px;padding:25px 18px;text-align:center;box-shadow:0 9px 27px rgba(0,0,0,.07);transition:.3s}.card:hover{transform:translateY(-6px);box-shadow:0 18px 35px rgba(0,0,0,.12)}
+.icon{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto auto 14px;font-size:26px;background:rgba(7,59,92,.09)}.card h3{color:var(--blue);margin-bottom:8px}.card p{color:var(--gray);font-size:14px;line-height:1.5}
+.poster-section{padding:80px 20px;background:linear-gradient(135deg,var(--dark),var(--blue))}.poster-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.poster-image{border-radius:17px;overflow:hidden;box-shadow:0 28px 55px rgba(0,0,0,.35);transform:rotate(-.7deg)}.poster-text{color:#fff}.poster-text small{color:var(--gold2);font-weight:900;letter-spacing:2px;text-transform:uppercase}.poster-text h2{font-size:clamp(2rem,5vw,3.8rem);line-height:1;margin:10px 0 18px}.poster-text p{color:rgba(255,255,255,.77);line-height:1.65;margin-bottom:22px}
+.location-bar{background:#fff;padding:40px 20px}.location-inner{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.location-inner h3{color:var(--blue);margin-bottom:5px}.location-inner p{color:var(--gray)}
+footer{background:#041d2b;color:rgba(255,255,255,.7);text-align:center;padding:40px 20px}footer strong{display:block;color:#fff;margin-bottom:7px}footer p{font-size:13px;line-height:1.6}
+.modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(7px)}.modal.active{display:flex}.modal-content{position:relative;width:100%;max-width:560px;padding:32px;border-radius:22px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:modalIn .3s ease}.close{position:absolute;right:13px;top:13px;border:0;width:38px;height:38px;border-radius:50%;background:#eee;font-size:22px}.modal h2{color:var(--blue);margin-bottom:14px}.modal p{color:var(--gray);line-height:1.65;margin-bottom:14px}
+@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@media(max-width:900px){.hero{min-height:auto;padding-bottom:70px}.hero-content{grid-template-columns:1fr;text-align:center;gap:18px}.shield{width:min(285px,60vw)}.hero-description{margin-left:auto;margin-right:auto}.buttons{justify-content:center}.cards{grid-template-columns:repeat(2,1fr)}.poster-grid{grid-template-columns:1fr}.poster-text{text-align:center}.location-inner{flex-direction:column;text-align:center}}
+@media(max-width:650px){.nav{display:none}.hero{padding-top:92px;padding-bottom:55px;background-position:center}.hero h1{letter-spacing:-2px}.hero-description{font-size:.96rem}.countdown-wrap{margin-top:-30px;padding:0 10px}.countdown-card{padding:14px 9px;border-radius:17px}.countdown{gap:5px}.time-box{padding:12px 3px;border-radius:11px}.time-number{font-size:clamp(1.3rem,8vw,2.2rem)}.time-label{font-size:7px;letter-spacing:.6px}.cards{grid-template-columns:1fr}.logo-section{padding-top:55px}.poster-section{padding:65px 16px}}
+@media(max-width:390px){.brand img{width:42px;height:42px}.brand strong{font-size:13px}.brand span{font-size:8px}.hero h1{font-size:2.35rem}.buttons .btn{width:100%}}
 </style>
 </head>
-
 <body>
 
 <header class="topbar" id="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="#inicio">
-      <img src="imagenes/escudo-partido.png" alt="Escudo de Partido">
-      <div>
-        <strong>PARTIDO</strong>
-        <span>República Dominicana</span>
-      </div>
-    </a>
-
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#encuentro">El Encuentro</a>
-      <a href="#afiche">Afiche</a>
-      <a href="#ubicacion">Ubicación</a>
-      <button class="btn nav-calendar" onclick="addToCalendar()">📅 Agregar al calendario</button>
-    </nav>
-  </div>
+ <div class="topbar-inner">
+  <a class="brand" href="#inicio">
+   <img src="imagenes/escudo-partido.png" alt="Escudo de Partido">
+   <div><strong>PARTIDO</strong><span>República Dominicana</span></div>
+  </a>
+  <nav class="nav">
+   <a href="#inicio">Inicio</a><a href="#encuentro">El Encuentro</a><a href="#afiche">Afiche</a><a href="#ubicacion">Ubicación</a>
+   <button class="btn nav-calendar" onclick="addToCalendar()">📅 Agregar al calendario</button>
+  </nav>
+ </div>
 </header>
 
 <section class="hero" id="inicio">
-  <div class="hero-content">
-    <div>
-      <img class="shield" src="imagenes/escudo-partido.png" alt="Escudo del Municipio de Partido">
-    </div>
-
-    <div class="hero-text">
-      <div class="eyebrow">Un pueblo que vuelve a encontrarse</div>
-
-      <h1>
-        ENCUENTRO
-        <span>DE PARTIDENSES 2026</span>
-      </h1>
-
-      <p class="hero-description">
-        Un momento para volver a nuestras raíces, reencontrarnos
-        con nuestra gente y celebrar el orgullo de ser de Partido.
-      </p>
-
-      <div class="buttons">
-        <button class="btn primary" onclick="openModal('infoModal')">✨ Conocer el encuentro</button>
-        <button class="btn secondary" onclick="addToCalendar()">📅 Guardar fecha</button>
-        <button class="btn secondary" onclick="shareEvent()">📲 Compartir</button>
-      </div>
-    </div>
+ <div class="hero-content">
+  <div><img class="shield" src="imagenes/escudo-partido.png" alt="Escudo del Municipio de Partido"></div>
+  <div class="hero-text">
+   <div class="eyebrow">Un pueblo que vuelve a encontrarse</div>
+   <h1>ENCUENTRO<span>DE PARTIDENSES 2026</span></h1>
+   <p class="hero-description">Un momento para volver a nuestras raíces, reencontrarnos con nuestra gente y celebrar el orgullo de ser de Partido.</p>
+   <div class="buttons">
+    <button class="btn primary" onclick="openModal('infoModal')">✨ Conocer el encuentro</button>
+    <button class="btn secondary" onclick="addToCalendar()">📅 Guardar fecha</button>
+    <button class="btn secondary" onclick="shareEvent()">📲 Compartir</button>
+   </div>
   </div>
+ </div>
 </section>
 
 <section class="countdown-wrap">
-  <div class="countdown-card">
-    <div class="countdown-title">⏳ Cuenta regresiva para nuestro encuentro</div>
-
-    <div class="countdown" id="countdown">
-      <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>
-      <div class="time-box"><span class="time-number" id="hours">00</span><span class="time-label">Horas</span></div>
-      <div class="time-box"><span class="time-number" id="minutes">00</span><span class="time-label">Minutos</span></div>
-      <div class="time-box"><span class="time-number" id="seconds">00</span><span class="time-label">Segundos</span></div>
-    </div>
-
-    <div class="today" id="today">🎉 ¡HOY ES EL GRAN DÍA! 🎉</div>
+ <div class="countdown-card">
+  <div class="countdown-title">⏳ Cuenta regresiva para nuestro encuentro</div>
+  <div class="countdown" id="countdown">
+   <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>
+   <div class="time-box"><span class="time-number" id="hours">00</span><span class="time-label">Horas</span></div>
+   <div class="time-box"><span class="time-number" id="minutes">00</span><span class="time-label">Minutos</span></div>
+   <div class="time-box"><span class="time-number" id="seconds">00</span><span class="time-label">Segundos</span></div>
   </div>
+  <div class="today" id="today">🎉 ¡HOY ES EL GRAN DÍA! 🎉</div>
+ </div>
 </section>
 
 <section class="logo-section" id="encuentro">
-  <img src="imagenes/logo-partido.png" alt="Partido, Mi pueblo querido">
-  <p class="subtitle">
-    <strong>Reunión del condado y la comunidad</strong><br>
-    Porque hay lugares que nunca dejamos de llevar en el corazón.
-  </p>
+ <img src="imagenes/logo-partido.png" alt="Partido, Mi pueblo querido">
+ <p class="subtitle"><strong>Reunión del condado y la comunidad</strong><br>Porque hay lugares que nunca dejamos de llevar en el corazón.</p>
 </section>
 
 <section class="section cream">
-  <div class="container">
-    <div class="heading">
-      <small>Nuestra identidad</small>
-      <h2>Un encuentro con nuestras raíces</h2>
-      <p>
-        Un espacio para reunir a quienes nacieron, crecieron o mantienen
-        un vínculo especial con nuestro querido municipio.
-      </p>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <div class="icon">🏡</div>
-        <h3>Nuestro pueblo</h3>
-        <p>Partido es historia, familia, paisajes y recuerdos que permanecen sin importar la distancia.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">🤝</div>
-        <h3>Comunidad</h3>
-        <p>Una oportunidad para reencontrarnos, compartir y fortalecer los lazos que nos unen.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">🌱</div>
-        <h3>Nuestra tierra</h3>
-        <p>Celebramos nuestros campos, nuestras montañas y la tierra que nos vio crecer.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">❤️</div>
-        <h3>Orgullo partidense</h3>
-        <p>Ser de Partido es una parte de nuestra historia que llevamos siempre con nosotros.</p>
-      </article>
-    </div>
+ <div class="container">
+  <div class="heading"><small>Nuestra identidad</small><h2>Un encuentro con nuestras raíces</h2><p>Un espacio para reunir a quienes nacieron, crecieron o mantienen un vínculo especial con nuestro querido municipio.</p></div>
+  <div class="cards">
+   <article class="card"><div class="icon">🏡</div><h3>Nuestro pueblo</h3><p>Partido es historia, familia, paisajes y recuerdos que permanecen sin importar la distancia.</p></article>
+   <article class="card"><div class="icon">🤝</div><h3>Comunidad</h3><p>Una oportunidad para reencontrarnos, compartir y fortalecer los lazos que nos unen.</p></article>
+   <article class="card"><div class="icon">🌱</div><h3>Nuestra tierra</h3><p>Celebramos nuestros campos, nuestras montañas y la tierra que nos vio crecer.</p></article>
+   <article class="card"><div class="icon">❤️</div><h3>Orgullo partidense</h3><p>Ser de Partido es una parte de nuestra historia que llevamos siempre con nosotros.</p></article>
   </div>
+ </div>
 </section>
 
 <section class="poster-section" id="afiche">
-  <div class="poster-grid">
-    <div class="poster-image">
-      <img src="imagenes/afiche-encuentro.png" alt="Afiche del Encuentro de Partidenses 2026">
-    </div>
-
-    <div class="poster-text">
-      <small>Reserva la fecha</small>
-      <h2>29 de agosto de 2026</h2>
-      <p>
-        Guarda esta fecha y prepárate para reencontrarte con familiares,
-        amigos y personas que comparten contigo el orgullo de ser partidense.
-      </p>
-
-      <div class="buttons">
-        <button class="btn primary" onclick="openModal('locationModal')">📍 Ver ubicación</button>
-        <button class="btn gold" onclick="addToCalendar()">📅 Guardar fecha</button>
-      </div>
-    </div>
+ <div class="poster-grid">
+  <div class="poster-image"><img src="imagenes/afiche-encuentro.png" alt="Afiche del Encuentro de Partidenses 2026"></div>
+  <div class="poster-text">
+   <small>Reserva la fecha</small><h2>29 de agosto de 2026</h2>
+   <p>Guarda esta fecha y prepárate para reencontrarte con familiares, amigos y personas que comparten contigo el orgullo de ser partidense.</p>
+   <div class="buttons"><button class="btn primary" onclick="openModal('locationModal')">📍 Ver ubicación</button><button class="btn gold" onclick="addToCalendar()">📅 Guardar fecha</button></div>
   </div>
+ </div>
 </section>
 
 <section class="location-bar" id="ubicacion">
-  <div class="location-inner">
-    <div>
-      <h3>📍 Partido, Dajabón</h3>
-      <p>República Dominicana 🇩🇴</p>
-    </div>
-    <button class="btn primary" onclick="openModal('locationModal')">Ver ubicación</button>
-  </div>
+ <div class="location-inner">
+  <div><h3>📍 Partido, Dajabón</h3><p>República Dominicana 🇩🇴</p></div>
+  <button class="btn primary" onclick="openModal('locationModal')">Ver ubicación</button>
+ </div>
 </section>
 
-<footer>
-  <strong>ENCUENTRO DE PARTIDENSES 2026</strong>
-  <p>Reunión del condado y la comunidad</p>
-  <p style="margin-top:10px">Partido, Dajabón, República Dominicana 🇩🇴</p>
-  <p style="margin-top:16px;opacity:.55">© 2026 — Encuentro de Partidenses</p>
-</footer>
+<footer><strong>ENCUENTRO DE PARTIDENSES 2026</strong><p>Reunión del condado y la comunidad</p><p style="margin-top:9px">Partido, Dajabón, República Dominicana 🇩🇴</p><p style="margin-top:15px;opacity:.55">© 2026 — Encuentro de Partidenses</p></footer>
 
-<div class="modal" id="infoModal" onclick="outside(event,'infoModal')">
-  <div class="modal-content">
-    <button class="close" onclick="closeModal('infoModal')">×</button>
-    <h2>Encuentro de Partidenses 2026</h2>
-    <p>Un espacio para reunir a la comunidad partidense, compartir recuerdos, fortalecer vínculos y celebrar nuestra identidad.</p>
-    <p><strong>📅 Fecha:</strong> 29 de agosto de 2026</p>
-    <p><strong>📍 Lugar:</strong> Partido, Dajabón, República Dominicana</p>
-    <button class="btn primary" onclick="addToCalendar()">📅 Agregar al calendario</button>
-  </div>
-</div>
+<div class="modal" id="infoModal" onclick="outside(event,'infoModal')"><div class="modal-content">
+ <button class="close" onclick="closeModal('infoModal')">×</button><h2>Encuentro de Partidenses 2026</h2>
+ <p>Un espacio para reunir a la comunidad partidense, compartir recuerdos, fortalecer vínculos y celebrar nuestra identidad.</p>
+ <p><strong>📅 Fecha:</strong> 29 de agosto de 2026</p><p><strong>📍 Lugar:</strong> Partido, Dajabón, República Dominicana</p>
+ <button class="btn primary" onclick="addToCalendar()">📅 Agregar al calendario</button>
+</div></div>
 
-<div class="modal" id="locationModal" onclick="outside(event,'locationModal')">
-  <div class="modal-content">
-    <button class="close" onclick="closeModal('locationModal')">×</button>
-    <h2>📍 Ubicación</h2>
-    <p>El encuentro se realizará en el municipio de Partido, Dajabón, República Dominicana.</p>
-    <p>Cuando tengas el lugar exacto, solo hay que cambiar el enlace de Maps en esta sección.</p>
-    <a class="btn primary" target="_blank" rel="noopener"
-       href="https://www.google.com/maps/search/?api=1&query=Partido%2C%20Dajab%C3%B3n%2C%20Rep%C3%BAblica%20Dominicana">
-       🗺️ Abrir Google Maps
-    </a>
-  </div>
-</div>
+<div class="modal" id="locationModal" onclick="outside(event,'locationModal')"><div class="modal-content">
+ <button class="close" onclick="closeModal('locationModal')">×</button><h2>📍 Ubicación</h2>
+ <p>El encuentro se realizará en el municipio de Partido, Dajabón, República Dominicana.</p>
+ <p>Cuando tengas el lugar exacto, podremos cambiar este enlace por el punto exacto del evento.</p>
+ <a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Partido%2C%20Dajab%C3%B3n%2C%20Rep%C3%BAblica%20Dominicana">🗺️ Abrir Google Maps</a>
+</div></div>
 
 <script>
-const eventDate = new Date("2026-08-29T00:00:00-04:00").getTime();
-
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minutesEl = document.getElementById("minutes");
-const secondsEl = document.getElementById("seconds");
-const countdownEl = document.getElementById("countdown");
-const todayEl = document.getElementById("today");
-
+const eventDate=new Date("2026-08-29T00:00:00-04:00").getTime();
+const daysEl=document.getElementById("days"),hoursEl=document.getElementById("hours"),minutesEl=document.getElementById("minutes"),secondsEl=document.getElementById("seconds"),countdownEl=document.getElementById("countdown"),todayEl=document.getElementById("today");
 function updateCountdown(){
-  const diff = eventDate - Date.now();
-
-  if(diff <= 0){
-    countdownEl.style.display = "none";
-    todayEl.style.display = "block";
-    clearInterval(timer);
-    return;
-  }
-
-  const total = Math.floor(diff / 1000);
-  const d = Math.floor(total / 86400);
-  const h = Math.floor((total % 86400) / 3600);
-  const m = Math.floor((total % 3600) / 60);
-  const s = total % 60;
-
-  daysEl.textContent = String(d).padStart(2,"0");
-  hoursEl.textContent = String(h).padStart(2,"0");
-  minutesEl.textContent = String(m).padStart(2,"0");
-  secondsEl.textContent = String(s).padStart(2,"0");
+ const diff=eventDate-Date.now();
+ if(diff<=0){countdownEl.style.display="none";todayEl.style.display="block";clearInterval(timer);return}
+ const total=Math.floor(diff/1000),d=Math.floor(total/86400),h=Math.floor((total%86400)/3600),m=Math.floor((total%3600)/60),s=total%60;
+ daysEl.textContent=String(d).padStart(2,"0");hoursEl.textContent=String(h).padStart(2,"0");minutesEl.textContent=String(m).padStart(2,"0");secondsEl.textContent=String(s).padStart(2,"0");
 }
-
-updateCountdown();
-const timer = setInterval(updateCountdown,1000);
-
-function openModal(id){
-  document.getElementById(id).classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal(id){
-  document.getElementById(id).classList.remove("active");
-  document.body.style.overflow = "";
-}
-
-function outside(e,id){
-  if(e.target === document.getElementById(id)) closeModal(id);
-}
-
-document.addEventListener("keydown",e=>{
-  if(e.key === "Escape"){
-    document.querySelectorAll(".modal.active").forEach(m=>closeModal(m.id));
-  }
-});
-
+updateCountdown();const timer=setInterval(updateCountdown,1000);
+function openModal(id){document.getElementById(id).classList.add("active");document.body.style.overflow="hidden"}
+function closeModal(id){document.getElementById(id).classList.remove("active");document.body.style.overflow=""}
+function outside(e,id){if(e.target===document.getElementById(id))closeModal(id)}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".modal.active").forEach(m=>closeModal(m.id))});
 function addToCalendar(){
-  const title = encodeURIComponent("Encuentro de Partidenses 2026");
-  const details = encodeURIComponent("Encuentro de Partidenses 2026 — Reunión del condado y la comunidad.");
-  const location = encodeURIComponent("Partido, Dajabón, República Dominicana");
-  const url =
-    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-    "&text=" + title +
-    "&dates=20260829T000000/20260830T000000" +
-    "&details=" + details +
-    "&location=" + location;
-  window.open(url,"_blank");
+ const title=encodeURIComponent("Encuentro de Partidenses 2026"),details=encodeURIComponent("Encuentro de Partidenses 2026 — Reunión del condado y la comunidad."),location=encodeURIComponent("Partido, Dajabón, República Dominicana");
+ window.open("https://calendar.google.com/calendar/render?action=TEMPLATE&text="+title+"&dates=20260829T000000/20260830T000000&details="+details+"&location="+location,"_blank");
 }
-
 async function shareEvent(){
-  const data = {
-    title:"Encuentro de Partidenses 2026",
-    text:"🇩🇴 Encuentro de Partidenses 2026 — Reunión del condado y la comunidad.",
-    url:window.location.href
-  };
-
-  try{
-    if(navigator.share){
-      await navigator.share(data);
-    }else{
-      await navigator.clipboard.writeText(window.location.href);
-      alert("Enlace copiado. ¡Compártelo con otros partidenses!");
-    }
-  }catch(e){}
+ const data={title:"Encuentro de Partidenses 2026",text:"🇩🇴 Encuentro de Partidenses 2026 — Reunión del condado y la comunidad.",url:window.location.href};
+ try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(window.location.href);alert("Enlace copiado. ¡Compártelo con otros partidenses!")}}catch(e){}
 }
-
-window.addEventListener("scroll",()=>{
-  const bar = document.getElementById("topbar");
-  bar.style.background = window.scrollY > 30
-    ? "rgba(4,29,43,.97)"
-    : "rgba(6,43,65,.88)";
-});
+window.addEventListener("scroll",()=>{document.getElementById("topbar").style.background=window.scrollY>30?"rgba(4,29,43,.97)":"rgba(4,29,43,.91)"});
 </script>
-
 </body>
 </html>
