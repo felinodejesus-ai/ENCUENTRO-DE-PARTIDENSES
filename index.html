@@ -6,16 +6,9 @@
   <title>Encuentro de Partidenses 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Caveat:wght@700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
   
   <style>
-    :root {
-      --azul-partido: #002b7f;
-      --rojo-partido: #ce1126;
-      --amarillo-partido: #f2a900;
-      --gris-partido: #555555;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,182 +17,195 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
-      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px 10px;
+      padding: 15px;
+      /* Fondo compuesto con patrón agrícola y bandera tenue */
+      background: linear-gradient(rgba(245, 245, 240, 0.88), rgba(245, 245, 240, 0.88)),
+                  url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
     }
 
-    .main-card {
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-      max-width: 460px;
+    .poster-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      max-width: 480px;
       width: 100%;
-      padding: 35px 25px;
+      padding: 25px 20px;
       text-align: center;
       position: relative;
-      overflow: hidden;
-      border: 3px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    /* Bordes decorativos */
-    .main-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 10px;
-      background: linear-gradient(90deg, var(--azul-partido) 0%, var(--amarillo-partido) 50%, var(--rojo-partido) 100%);
-    }
-
-    .logo-escudo {
-      max-width: 150px;
-      height: auto;
+    /* Escudo de Partido Superior */
+    .escudo-wrapper {
       margin-bottom: 15px;
-      filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.2));
-      transition: transform 0.3s ease;
     }
 
-    .logo-escudo:hover {
-      transform: scale(1.05);
+    .escudo-img {
+      width: 150px;
+      height: auto;
+      filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.25));
     }
 
-    .title-main {
-      font-size: 1.5rem;
+    /* Título Principal */
+    .main-title {
+      font-size: 1.6rem;
       font-weight: 900;
-      color: var(--azul-partido);
+      color: #0d0d0d;
       letter-spacing: 1px;
       text-transform: uppercase;
-      line-height: 1.2;
+      margin-bottom: 20px;
     }
 
-    .subtitle-script {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem;
-      color: var(--rojo-partido);
-      margin-top: -5px;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-
-    .badge-faltan {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--amarillo-partido), #d49000);
-      color: #ffffff;
-      font-size: 0.95rem;
-      font-weight: 900;
-      padding: 8px 24px;
-      border-radius: 50px;
-      letter-spacing: 2px;
-      box-shadow: 0 4px 12px rgba(242, 169, 0, 0.4);
-      margin-bottom: 25px;
-      text-transform: uppercase;
-    }
-
-    /* Contenedor del reloj */
-    .countdown-grid {
+    /* Reloj Estilo Marco Metálico/Bronce */
+    .countdown-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 25px;
     }
 
-    .time-box {
-      background: #f8fafc;
-      border: 2px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 14px 4px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    .time-card {
+      background: linear-gradient(145deg, #2a221b, #15100c);
+      border: 2px solid #b8860b;
+      border-radius: 12px;
+      padding: 12px 2px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 0 8px rgba(184, 134, 11, 0.3);
     }
 
-    .time-number {
-      font-size: 2rem;
+    .time-val {
+      font-size: 1.8rem;
       font-weight: 900;
-      color: var(--azul-partido);
+      color: #f3e5ab;
+      font-family: 'Courier New', monospace;
       line-height: 1;
+      text-shadow: 0 0 5px rgba(243, 229, 171, 0.5);
     }
 
-    .time-label {
+    .time-lbl {
+      font-family: 'Cinzel', serif;
       font-size: 0.65rem;
       font-weight: 700;
-      color: var(--gris-partido);
+      color: #d4af37;
       text-transform: uppercase;
-      margin-top: 6px;
+      margin-top: 8px;
       letter-spacing: 0.5px;
     }
 
-    .date-footer {
-      border-top: 2px dashed #e2e8f0;
-      padding-top: 20px;
-      font-size: 0.9rem;
-      color: #475569;
-      font-weight: 600;
+    /* Arte Inferior PARTIDO / Mi pueblo natal */
+    .brand-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 15px 0;
     }
 
-    .date-footer span {
-      color: var(--rojo-partido);
+    .partido-block {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: 1px;
+      text-align: right;
+    }
+
+    .partido-block .par { color: #002b7f; }
+    .partido-block .ti { color: #6c757d; }
+    .partido-block .do { color: #ce1126; }
+
+    .script-block {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .script-block span {
+      color: #ce1126;
+    }
+
+    /* Pie de página */
+    .footer-subtitle {
+      font-size: 0.75rem;
       font-weight: 800;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-top: 1px solid #ddd;
+      padding-top: 12px;
+      margin-top: 10px;
     }
 
-    /* Mensaje del Gran Día */
     .celebration-msg {
       display: none;
       font-size: 1.8rem;
       font-weight: 900;
-      color: var(--rojo-partido);
-      padding: 20px 0;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      color: #ce1126;
+      padding: 15px 0;
     }
   </style>
 </head>
 <body>
 
-  <div class="main-card">
-    <!-- Escudo del Municipio de Partido -->
-    <img class="logo-escudo" src="https://raw.githubusercontent.com/felinodejesus-ai/ENCUENTRO-DE-PARTIDENSES/main/d7ec7dff-4e47-497d-9f6d-0af8da659020.png" alt="Escudo Municipio de Partido" onerror="this.style.display='none'">
+  <div class="poster-card">
+    <!-- Escudo Oficial -->
+    <div class="escudo-wrapper">
+      <img src="https://raw.githubusercontent.com/felinodejesus-ai/ENCUENTRO-DE-PARTIDENSES/main/d7ec7dff-4e47-497d-9f6d-0af8da659020.png" alt="Escudo Municipio de Partido" class="escudo-img">
+    </div>
 
-    <div class="title-main">ENCUENTRO DE PARTIDENSES</div>
-    <div class="subtitle-script">Mi Pueblo Natal 2026</div>
+    <div class="main-title">ENCUENTRO DE PARTIDENSES 2026</div>
 
-    <div id="countdown-block">
-      <div class="badge-faltan">FALTAN</div>
-
-      <div class="countdown-grid">
-        <div class="time-box">
-          <div class="time-number" id="days">00</div>
-          <div class="time-label">Días</div>
+    <!-- Contenido del Reloj -->
+    <div id="clock-block">
+      <div class="countdown-container">
+        <div class="time-card">
+          <div class="time-val" id="days">00</div>
+          <div class="time-lbl">DÍAS</div>
         </div>
-        <div class="time-box">
-          <div class="time-number" id="hours">00</div>
-          <div class="time-label">Horas</div>
+        <div class="time-card">
+          <div class="time-val" id="hours">00</div>
+          <div class="time-lbl">HORAS</div>
         </div>
-        <div class="time-box">
-          <div class="time-number" id="minutes">00</div>
-          <div class="time-label">Minutos</div>
+        <div class="time-card">
+          <div class="time-val" id="minutes">00</div>
+          <div class="time-lbl">MINUTOS</div>
         </div>
-        <div class="time-box">
-          <div class="time-number" id="seconds">00</div>
-          <div class="time-label">Segundos</div>
+        <div class="time-card">
+          <div class="time-val" id="seconds">00</div>
+          <div class="time-lbl">SEGUNDOS</div>
         </div>
       </div>
     </div>
 
-    <div id="celebration-block" class="celebration-msg">
+    <div id="celebration-msg" class="celebration-msg">
       🎉 ¡HOY ES EL GRAN DÍA! 🎉
     </div>
 
-    <div class="date-footer">
-      Municipio de Partido • República Dominicana<br>
-      <span>29 de Agosto de 2026</span>
+    <!-- Logotipo PARTIDO / Mi pueblo natal -->
+    <div class="brand-section">
+      <div class="partido-block">
+        <span class="par">PAR</span>
+        <span class="ti">TI</span>
+        <span class="do">DO</span>
+      </div>
+      <div class="script-block">
+        Mi pueblo natal <span>❤️</span>
+      </div>
+    </div>
+
+    <div class="footer-text footer-subtitle">
+      REUNIÓN DE LA COMUNIDAD • 29 DE AGOSTO DE 2026
     </div>
   </div>
 
@@ -211,8 +217,8 @@
       const diff = targetDate - now;
 
       if (diff <= 0) {
-        document.getElementById("countdown-block").style.display = "none";
-        document.getElementById("celebration-block").style.display = "block";
+        document.getElementById("clock-block").style.display = "none";
+        document.getElementById("celebration-msg").style.display = "block";
         clearInterval(timerInterval);
         return;
       }
